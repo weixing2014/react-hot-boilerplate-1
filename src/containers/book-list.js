@@ -10,7 +10,14 @@ class BookList extends Component {
     return (
       books.map((book) => {
         return (
-          <li key={book.title} onClick={handleSelectBook.bind(this, book)}>{book.title}</li>
+          <li
+            key={book.title}
+            onClick={()=> {
+              handleSelectBook(book)
+            }}
+            >
+            {book.title}
+          </li>
         )
       })
     )
