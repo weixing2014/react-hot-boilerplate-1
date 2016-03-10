@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux'
-import BooksReducer from './books'
-import ActiveBookReducer from './active-book'
+import NotesReducer from './notes'
 
 export default combineReducers({
-  activeBook: ActiveBookReducer,
-  books: BooksReducer,
+  notes: NotesReducer,
 })

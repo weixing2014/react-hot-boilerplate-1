@@ -4,9 +4,9 @@ import App from './App';
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import bookApp from './reducers'
+import noteApp from './reducers'
 
-let store = createStore(bookApp)
+let store = createStore(noteApp)
 
 ReactDOM.render(
   <Provider store={store}>

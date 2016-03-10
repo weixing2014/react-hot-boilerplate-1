@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { addNote } from '../actions/index'
 
-export default class SearchBarContainer extends Component {
+
+class SearchBarContainer extends Component {
   constructor(props) {
     super(props)
 
@@ -19,8 +23,15 @@ export default class SearchBarContainer extends Component {
   }
 
   handleFormSubmit(e) {
+    const { addNote } = this.props
+
     e.preventDefault()
+
+    addNote(this.state.term)
     
+    this.setState({
+      term: ''
+    })
   }
 
   render() {
@@ -36,3 +47,9 @@ export default class SearchBarContainer extends Component {
     )
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ addNote }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(SearchBarContainer)
