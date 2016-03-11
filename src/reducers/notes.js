@@ -2,7 +2,7 @@ import uuid from 'node-uuid'
 
 export default function(state = [], action) {
   switch(action.type) {
-    case 'NOTE_ADDED':
+    case 'ADD_NOTE':
       return [
         ...state,
         {
@@ -10,9 +10,11 @@ export default function(state = [], action) {
           content: action.payload,
         }
       ]
-    case 'NOTE_DELETED':
+
+    case 'DELETE_NOTE':
       const index = state.findIndex((note) => note.id === action.payload)
-      return index > -1 ? state.splice(index, 1) : state
+      return index > -1 ? state.filter((_, i) => i !== index) : state
+
     default:
       return state
   }

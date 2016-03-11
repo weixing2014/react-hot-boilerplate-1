@@ -1,33 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteNote } from '../actions/index'
+import { deleteNote } from '../actions/notes'
 import { bindActionCreators } from 'redux'
+import NoteList from '../components/note-list'
 
 class NoteListContainer extends Component {
-  renderList() {
-    const { notes } = this.props
-
-    return notes.map((note) => {
-      return (
-        <li key={ note.id }>
-          { note.content }
-        </li>
-      )
-    })
-  }
-
   render() {
     return (
-      <ul>
-        { this.renderList() }
-      </ul>
+      <NoteList {...this.props} />
     )
   }
 }
 
 function mapStateToProps(state) {
   return {
-    notes: state.notes,
+    notes: state.query ?
+           state.notes.filter(
+             note => note.content.indexOf(state.query) > -1
+           )
+           : state.notes,
   }
 }
 
