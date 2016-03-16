@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteNote } from '../actions/notes'
+import { deleteNote, editNote, saveNote, updateNoteContent } from '../actions/notes'
 import { bindActionCreators } from 'redux'
 import NoteList from '../components/note-list'
 
@@ -25,6 +25,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     deleteNote,
+    editNote,
+    saveNote,
+    updateNoteContent,
   }, dispatch)
 }
 

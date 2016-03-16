@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
+import Note from './note'
 
 export default class NoteList extends Component {
   renderList() {
-    const { notes, deleteNote } = this.props
+    const { notes, deleteNote, editNote, saveNote, updateNoteContent } = this.props
 
     return notes.map((note) => {
       return (
         <li key={ note.id }>
-          { note.content }
-          <span onClick={ deleteNote.bind(this, note.id) }>
-            x
-          </span>
+          <Note id={ note.id }
+            isEditing={ note.isEditing }
+            content={ note.content }
+            onDeleteNote={ deleteNote }
+            onEditNote={ editNote }
+            onSaveNote={ saveNote }
+            onUpdateNoteContent= { updateNoteContent }
+            />
         </li>
       )
     })
