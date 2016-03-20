@@ -13,6 +13,7 @@ module.exports = function (config) {
       'karma-mocha-reporter'
     ],
     preprocessors: {
+      '__test__/*.js': ['webpack', 'sourcemap'],
       'tests.webpack.js': [ 'webpack', 'sourcemap' ] //preprocess with webpack and our sourcemap loader
     },
     reporters: [ 'mocha', 'coverage' ], //report results in this format

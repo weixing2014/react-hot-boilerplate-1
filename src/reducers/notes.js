@@ -7,7 +7,7 @@ function findIndex(state = [], noteId) {
 export default function(state = [], action) {
   let index = -1,
    newState = []
-
+   
   switch(action.type) {
     case 'ADD_NOTE':
       return [
