@@ -1,4 +1,6 @@
-import { combineReducers } from 'redux'
+import {
+  combineReducers
+} from 'redux'
 import NotesReducer from './notes'
 import QueryReducer from './query'
 

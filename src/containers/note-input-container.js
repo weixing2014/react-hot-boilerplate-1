@@ -1,15 +1,14 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { addNote } from '../actions/notes'
-
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {addNote} from '../actions/notes'
 
 class NoteInputContainer extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      term: '',
+      term: ''
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -17,39 +16,33 @@ class NoteInputContainer extends Component {
   }
 
   handleInputChange(e) {
-    this.setState({
-      term: e.target.value,
-    })
+    this.setState({term: e.target.value})
   }
 
   handleFormSubmit(e) {
-    const { addNote } = this.props
+    const {addNote} = this.props
 
     e.preventDefault()
 
     addNote(this.state.term)
 
-    this.setState({
-      term: ''
-    })
+    this.setState({term: ''})
   }
 
   render() {
     return (
       <form onSubmit={this.handleFormSubmit}>
-        <input
-          placeholder="Get a five-day forecast in your favorite cities"
-          value={this.state.term}
-          onChange={this.handleInputChange.bind(this)}
-          />
-        <button type="submit" >Submit</button>
+        <input placeholder="Get a five-day forecast in your favorite cities" value={this.state.term} onChange={this.handleInputChange.bind(this)}/>
+        <button type="submit">Submit</button>
       </form>
     )
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addNote }, dispatch)
+  return bindActionCreators({
+    addNote
+  }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(NoteInputContainer)

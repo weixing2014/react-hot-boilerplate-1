@@ -19,7 +19,10 @@ export function editNote(noteId) {
   }
 }
 
-export function saveNote({ noteId, content }) {
+export function saveNote({
+  noteId,
+  content
+}) {
   return {
     type: 'SAVE_NOTE',
     payload: {

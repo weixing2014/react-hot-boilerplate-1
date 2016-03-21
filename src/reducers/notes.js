@@ -6,13 +6,12 @@ function findIndex(state = [], noteId) {
 
 export default function(state = [], action) {
   let index = -1,
-   newState = []
-   
-  switch(action.type) {
+    newState = []
+
+  switch (action.type) {
     case 'ADD_NOTE':
       return [
-        ...state,
-        {
+        ...state, {
           id: uuid.v4(),
           isEditing: false,
           content: action.payload,
