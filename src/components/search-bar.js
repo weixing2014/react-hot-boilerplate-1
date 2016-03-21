@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 export default class SearchBar extends Component {
   constructor(props) {
@@ -8,20 +8,14 @@ export default class SearchBar extends Component {
   }
 
   handleInputChange(e) {
-    const { updateTerm } = this.props
+    const {updateTerm} = this.props
 
     updateTerm(e.target.value)
   }
 
   render() {
-    const { term } = this.props
+    const {term} = this.props
 
-    return (
-      <input
-        placeholder="Search notes…"
-        value={term}
-        onChange={this.handleInputChange}
-        />
-    )
+    return (<input placeholder="Search notes…" value={term} onChange={this.handleInputChange}/>)
   }
 }

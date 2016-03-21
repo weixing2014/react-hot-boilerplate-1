@@ -16,13 +16,11 @@ class Root extends React.Component {
 
         <p>
           Please input your name here:
-          <input
-            onChange={this.handleChange}
-            value={this.state.name}
-          />
+          <input onChange={this.handleChange} value={this.state.name}/>
         </p>
 
-        <p>Hello, {this.state.name} </p>
+        <p>Hello, {this.state.name}
+        </p>
       </div>
     );
   }
@@ -30,9 +28,7 @@ class Root extends React.Component {
   handleChange(e) {
     var newName = e.target.value();
 
-    this.setState({
-      name: newName
-    });
+    this.setState({name: newName});
   }
 }
 
